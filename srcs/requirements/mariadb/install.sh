@@ -1,3 +1,7 @@
+if [ ! -d "/run/mysqld" ];then
+	mkdir -p /run/mysqld
+	chown -R mysql:mysql /run/mysqld
+fi
 if [ ! -f "/var/lib/mysql/ib_buffer_pool" ]; then
 	/etc/init.d/mariadb setup
 	rc-service mariadb start
