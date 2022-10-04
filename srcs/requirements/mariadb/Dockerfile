@@ -10,6 +10,12 @@ RUN chmod +x /tmp/install.sh
 
 COPY mariadb-server.cnf /etc/my.cnf.d/
 
+#RUN mkdir tempmysql/
+
+#RUN cp -r /var/lib/mysql/* tempmysql
+
 EXPOSE 3306
+
+#RUN cp -r tempmysql/* /var/lib/mysql/
 
 ENTRYPOINT ["sh", "/tmp/install.sh"]
