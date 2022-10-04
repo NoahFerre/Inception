@@ -55,13 +55,13 @@ volumes:
   vol-wordpress:
     driver: local
     driver_opts:
-      type: bind
-      o: none
+      type: none
+      o: bind
       device: "/home/nferre/data/wordpress"
   vol-database:
     driver: local
     driver_opts:
-      type: bind
-      o: none
+      type: none
+      o: bind
       device: "/home/nferre/data/datab"
 
