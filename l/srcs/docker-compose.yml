@@ -10,7 +10,7 @@ services:
             - "443:443"
         restart: always
         volumes:
-            - ~/data/wordpress:/var/www/wordpress
+            - vol-wordpress:/var/www/wordpress
         networks:
             - inception
         depends_on:
@@ -27,7 +27,7 @@ services:
             dockerfile: Dockerfile
         restart: always
         volumes:
-            - ~/data/datab:/var/lib/mysql
+            - vol-database:/var/lib/mysql
         networks:
             - inception
      wordpress:
@@ -42,7 +42,7 @@ services:
             dockerfile: Dockerfile
         restart: always
         volumes:
-            - ~/data/wordpress:/var/www/wordpress
+            - vol-wordpress:/var/www/wordpress
         depends_on:
             - "mariadb"
         networks:
@@ -50,3 +50,18 @@ services:
 
 networks:
     inception:
+
+volumes:
+  vol-wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/home/nferre/data/wordpress"
+  vol-database:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "/home/nferre/data/datab"
+

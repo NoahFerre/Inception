@@ -1,10 +1,11 @@
 include srcs/.env
 export srcs/.env
 
+
 all: purge make
 
 make:
-	docker-compose -f srcs/docker-compose.yml up --build
+	cd srcs && docker-compose -f docker-compose.yml up --build && cd ..
 
 purge:
 	docker system prune -a

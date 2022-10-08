@@ -11,7 +11,7 @@ RUN openssl req -newkey rsa:4096 \
             -nodes \
             -out example.crt \
             -keyout example.key \
-            -subj "/C=SI/ST=Ljubljana/L=ewfg/O=Security/OU=IT Department/CN=www.example.com"
+            -subj "/C=SI/ST=Ljubljana/L=Ljubljana/O=Security/OU=IT Department/CN=www.example.com"
 
 EXPOSE 443
 
